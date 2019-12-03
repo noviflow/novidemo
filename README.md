@@ -1,6 +1,6 @@
 <img src="header.png" width="100%">
 
-# Demo Lab setup Guide v0.0.3
+# Demo Lab setup Guide v0.0.4
 
 These instructions include the requirements and guided steps to allow a partner to set up Noviflows CyberMapper 3.3 Load balancing demo with Fortigate Virtual firewalls.
 
@@ -22,6 +22,7 @@ enables vendor independent measurement of traffic latency through security asset
 </P>
 
 ## Bill of Materiel
+_______________
 
 | # of items | Items |
 |-------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -78,6 +79,7 @@ The table below lists the statics IP's configured on the different nodes in the 
 <img class="right" src="MEF-Demo.png" width="70%">
 
 ## Fortigate VM setup
+_______________
 
 The Fortigate VM's are configured with 3 network interfaces, the first interface `port1` is for management and the other 2 `port2, port3` are for ingress and egress traffic.
 
@@ -111,9 +113,7 @@ The Fortigate VM's validate their licenses at least once a day . This is why it 
 
 Choose your favorite tool to setup your VM's. A recommended tool is Virtual Machine Manager to configure vm's on the host server from a remote host. Use the qcow2 that was supplied and configure the network interfaces using virtio.
 
-make sure you install these packages on the KVM host server if you plan on using qemu and virt-manager.
-
-Also make sure you disable all firewalls on the host server.
+Make sure you install these packages on the KVM host server if you plan on using qemu and virt-manager.
 
 ```
 sudo apt install qemu-kvm libvirt-bin bridge-utils virt-manager
@@ -121,6 +121,14 @@ sudo apt update
 sudo service libvirtd start
 sudo update-rc.d libvirtd enable
 ```
+
+Also make sure you disable all firewalls on the host server.
+
+
+VM ressource Specifications:
+* vCPU:   8  
+* Memory: 8Gb  
+* Disk:   20Gb  
 
 <img src="./virtual-machine-manager.png" alt="lab setup" width="75%" height="75%" />
 
@@ -370,6 +378,13 @@ Add security rules as desired.
 ### Repeat all the same steps for as many Fortinet VM's as you would like to use.
 
 ## Traffic Generator VMs Setup
+_______________
+
+Traffic Generator VM's ressource Specifications:
+
+* vCPU:   8  
+* Memory: 8 Gb  
+* Disk:   100 Gb  
 
 ### Traffic Source Tools (lt-src)
 
@@ -443,6 +458,13 @@ add the last command line to the file `/etc/rc.local` so that its set correctly 
 make sure `rc.local` is executable
 
 ## CyberMapper VM
+_______________
+
+VM ressource Specifications:
+
+* vCPU:   4  
+* Memory: 4 Gb  
+* Disk:   100Gb  
 
 Create your VM by installing Ubuntu 18.04 use the same tool and process you used to create the firewall VM's
 
@@ -477,15 +499,15 @@ WantedBy=multi-user.target
 ```
 
 ## Configure CyberMapper and the Switch using the Visual Operations tool
-
+_______________
 Once everything is installed you should be able to configure CyberMapper using the VisualOps Dashboard and start sending traffic.
 
-<img src="./guidedSetup.png" alt="lab setup" width="50%" height="50%" />  
+<img src="./guidedSetup.png" alt="lab setup" width="70%" height="70%" />  
 <br>
 <br>
 <br>
-<img src="./SwitchDetection.png" alt="lab setup" width="50%" height="50%" />  
+<img src="./SwitchDetection.png" alt="lab setup" width="70%" height="70%" />  
 <br>
 <br>
 <br>
-<img src="./latencyDashboard.png" alt="lab setup" width="50%" height=50%" />
+<img src="./latencyDashboard.png" alt="lab setup" width="70%" height=70%" />
