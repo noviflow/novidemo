@@ -1,4 +1,4 @@
-<img src="header.png" width="100%">
+<img src="./ressources/header.png" width="100%">
 
 # Demo Lab setup Guide v0.0.4
 
@@ -18,7 +18,7 @@ servers, often enabling huge savings by greatly simplifying network architecture
 need to duplicate or overprovision network resources. CyberMapper also features the vOPS Visual Operations interface
 that greatly simplifies the configuration and management of security tool clusters, eases the setup of load balancing and
 enables vendor independent measurement of traffic latency through security assets.
-<img class="right" src="CM-solution-architecture.png" width="70%">
+<img class="right" src="./ressources/CM-solution-architecture.png" width="75%">
 </P>
 
 ## Bill of Materiel
@@ -28,10 +28,10 @@ _______________
 |-------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | 1 | Server that will host the Virtual Machine's, you you will need a server with "full height 8x PCIe 3.0 or above slots" for each NIC required and that if using a single CPU system, you will need to make sure that the PCIe slots are actually active as generally half or most are assigned to the second physical CPU. With a suggesion of alteast 64 GB’s of memory and 1 TB of disk space |
 | 1 | Tofino based Edge-Core Switch |
-| 1 | Noviware 500.2.2 (Provided by Noviflow) |
-| 1 | Switch license with INT capibilities enabled (Provided by Noviflow)|
-| 1 | CyberMapper 3.3 (Beta version) (Provided by Noviflow) |
-| 1 | CyberMapper license (Provided by Noviflow) |
+| 1 | Noviware 500.2.2 (Provided by Noviflow sales) |
+| 1 | Switch license with INT capibilities enabled (Provided by Noviflow sales)|
+| 1 | CyberMapper 3.3 (Beta version) (Provided by Noviflow sales)|
+| 1 | CyberMapper license (Provided by Noviflow sales) |
 | 2 | Intel NIC cards with 4 - 10Gb fiber ports. |
 | 6 | 40Gb fiber sfp's (Noviconnect SFP+ SR4 40G Optical Transceiver) |
 | 8 | 10Gb fiber sfp's Noviconnect (NoviConnect 508 SFP+ ER 10G Optical Transceiver) |
@@ -78,17 +78,17 @@ The table below lists the statics IP's configured on the different nodes in the 
 
 Wire diagram
 
-<img class="right" src="MEF-Demo.png" width="70%">
+<img class="right" src="./ressources/MEF-Demo.png" width="70%">
 
 Connected lab example
 
-<img class="right" src="20191106_094152.jpg" width="70%">
+<img class="right" src="./ressources/20191106_094152.jpg" width="70%">
 
 
 ## Fortigate VM setup
 _______________
 
-The Fortigate VM's are configured with 3 network interfaces, the first interface `port1` is for management and the other 2; 
+The Fortigate VM's are configured with 3 network interfaces, the first interface `port1` is for management and the other 2;
 `port2, port3` are for ingress and egress traffic.
 
 You can use macvtap for the management port but you have to use bridges for the traffic ports. Below is an example set of commands used on the host server to create bridges for the Forigate VM's. Make sure you persist those changes or  automaticlly run these configuration comments everytime the server is restarted.
@@ -138,7 +138,7 @@ VM ressource Specifications:
 * Memory: 8Gb  
 * Disk:   20Gb  
 
-<img src="./virtual-machine-manager.png" alt="lab setup" width="75%" height="75%" />
+<img src="./ressources/virtual-machine-manager.png" alt="lab setup" width="75%" height="75%" />
 
 example resulting xml file:
 ```
@@ -362,7 +362,7 @@ config system virtual-wire-pair
 end
 ```
 
-<img src="./vwp1.png" alt="lab setup" width="75%" height="75%" />
+<img src="./ressources/vwp1.png" alt="lab setup" width="75%" height="75%" />
 
 ### Adding a virtual wire pair and virtual wire pair policy
 
@@ -381,7 +381,7 @@ Configure the other firewall options as desired.
 
 Add security rules as desired.
 
-<img src="./vwp-policy.png" alt="lab setup" width="75%" height="75%" />
+<img src="./ressources/vwp-policy.png" alt="lab setup" width="75%" height="75%" />
 
 ### Repeat all the same steps for as many Fortinet VM's as you would like to use.
 
@@ -510,12 +510,12 @@ WantedBy=multi-user.target
 _______________
 Once everything is installed you should be able to configure CyberMapper using the VisualOps Dashboard and start sending traffic.
 
-<img src="./guidedSetup.png" alt="lab setup" width="75%" height="75%" />  
+<img src="./ressources/guidedSetup.png" alt="lab setup" width="75%" height="75%" />  
 <br>
 <br>
 <br>
-<img src="./SwitchDetection.png" alt="lab setup" width="75%" height="75%" />  
+<img src="./ressources/SwitchDetection.png" alt="lab setup" width="75%" height="75%" />  
 <br>
 <br>
 <br>
-<img src="./latencyDashboard.png" alt="lab setup" width="75%" height=75%" />
+<img src="./ressources/latencyDashboard.png" alt="lab setup" width="75%" height=75%" />
