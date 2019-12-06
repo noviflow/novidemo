@@ -4,7 +4,7 @@
 
 These instructions include the requirements and guided steps to allow a partner to set up Noviflows CyberMapper 3.3 Load balancing demo with Fortigate Virtual firewalls.
 
-CyberMapper \.tm  
+CyberMapper™
 Security Load Balancer RELEASE 3.3.0  
 Dynamic scaling, visualisation and mitigation of cybersecurity services
 
