@@ -40,7 +40,7 @@ _______________
 | 1 | Router with at least 4 - 1GB ports |
 | 5 | Ethernet cat 6 cables |
 | 2 | FortiGate VM64-KVM v6.0.3 |
-| 2 | Fortigate licenses |
+| 2 | Fortigate licenses activated|
 | 1 | docker-compose version 1.24.1, build 4667896b (installed on CyberMapper VM) |
 | 1 | Docker version 19.03.2, build 6a30dfc (installed on CyberMapper VM) |
 | 3 | Ubuntu 18 VM’s that will host load tools and Cybermapper |
@@ -76,12 +76,20 @@ The table below lists the statics IP's configured on the different nodes in the 
 | noviswtich  | 10.199.0.50 | 64 port Tofino EdgeCore NoviSwtich                                   |
 | srv-demo  | 10.199.0.61 | host server                                   |
 
+Wire diagram
+
 <img class="right" src="MEF-Demo.png" width="70%">
+
+Connected lab example
+
+<img class="right" src="20191106_094152.jpg" width="70%">
+
 
 ## Fortigate VM setup
 _______________
 
-The Fortigate VM's are configured with 3 network interfaces, the first interface `port1` is for management and the other 2 `port2, port3` are for ingress and egress traffic.
+The Fortigate VM's are configured with 3 network interfaces, the first interface `port1` is for management and the other 2; 
+`port2, port3` are for ingress and egress traffic.
 
 You can use macvtap for the management port but you have to use bridges for the traffic ports. Below is an example set of commands used on the host server to create bridges for the Forigate VM's. Make sure you persist those changes or  automaticlly run these configuration comments everytime the server is restarted.
 
@@ -111,7 +119,7 @@ ip link set enp94s0f2 up
 
 The Fortigate VM's validate their licenses at least once a day . This is why it needs access to the internet, why the demo setup includes a router, and why you will need to add a default route on the Fortigate VM's
 
-Choose your favorite tool to setup your VM's. A recommended tool is Virtual Machine Manager to configure vm's on the host server from a remote host. Use the qcow2 that was supplied and configure the network interfaces using virtio.
+Choose your favorite tool to setup your VM's. A recommended tool is Virtual Machine Manager to configure vm's on the host server from a remote host. Use the qcow2 that was supplied and configure the network interfaces using virtio. The qcow2 can only be downloaded from the fortinet website https://support.fortinet.com/Download/VMImages.aspx
 
 Make sure you install these packages on the KVM host server if you plan on using qemu and virt-manager.
 
@@ -319,14 +327,14 @@ enable vlan forwarding
 ```
 config system interface
     edit port2
-        set vlanforward disable
+        set vlanforward enable
     end
 ```
 
 ```
 config system interface
     edit port3
-        set vlanforward disable
+        set vlanforward enable
     end
 ```
 
@@ -472,7 +480,7 @@ The CyberMapper VM needs 2 interfaces one for management and one for telemetry t
 
 Configure the management interface with a static ip of 10.199.0.30/24, no need to give the telemetry interface an IP address, since the telemetry connection will be a direct L2 connection.
 
-User the CyberMapper 3.3 Installation Guide to install and configure CyberMapper 3.3 and the Analyzer using the provided pakcage.
+Use the CyberMapper 3.3 Installation Guide to install and configure CyberMapper 3.3 plus the Analyzer.
 
 ### Setup linux services
 
@@ -502,12 +510,12 @@ WantedBy=multi-user.target
 _______________
 Once everything is installed you should be able to configure CyberMapper using the VisualOps Dashboard and start sending traffic.
 
-<img src="./guidedSetup.png" alt="lab setup" width="70%" height="70%" />  
+<img src="./guidedSetup.png" alt="lab setup" width="75%" height="75%" />  
 <br>
 <br>
 <br>
-<img src="./SwitchDetection.png" alt="lab setup" width="70%" height="70%" />  
+<img src="./SwitchDetection.png" alt="lab setup" width="75%" height="75%" />  
 <br>
 <br>
 <br>
-<img src="./latencyDashboard.png" alt="lab setup" width="70%" height=70%" />
+<img src="./latencyDashboard.png" alt="lab setup" width="75%" height=75%" />
