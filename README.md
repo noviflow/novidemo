@@ -1,15 +1,13 @@
-<img src="./ressources/header.png" width="100%">
+<img src="./resources/header.png" width="100%">
 
-# Demo Lab setup Guide v0.0.4
+# Demo Lab setup Guide v0.0.5
 
 These instructions include the requirements and guided steps to allow a partner to set up Noviflows CyberMapper 3.3 Load balancing demo with Fortigate Virtual firewalls.
 
-CyberMapper \.tm  
-Security Load Balancer RELEASE 3.3.0  
+CyberMapper™
+Security Load Balancer RELEASE 3.3.0
 Dynamic scaling, visualisation and mitigation of cybersecurity services
-
 <P>
-
 CyberMapper Security Load Balancer offers major performance and dynamic scalability improvements of network
 security solutions, reduces overall security costs, and enables real-time automation of security solution mitigation.
 CyberMapper boosts the capabilities of cybersecurity services by off-loading data monitoring, inspection and handling
@@ -18,7 +16,7 @@ servers, often enabling huge savings by greatly simplifying network architecture
 need to duplicate or overprovision network resources. CyberMapper also features the vOPS Visual Operations interface
 that greatly simplifies the configuration and management of security tool clusters, eases the setup of load balancing and
 enables vendor independent measurement of traffic latency through security assets.
-<img class="right" src="./ressources/CM-solution-architecture.png" width="75%">
+<img class="right" src="./resources/CM-solution-architecture.png" width="75%">
 </P>
 
 ## Bill of Materiel
@@ -78,11 +76,11 @@ The table below lists the statics IP's configured on the different nodes in the 
 
 Wire diagram
 
-<img class="right" src="./ressources/MEF-Demo.png" width="70%">
+<img class="right" src="./resources/MEF-Demo.png" width="70%">
 
 Connected lab example
 
-<img class="right" src="./ressources/20191106_094152.jpg" width="70%">
+<img class="right" src="./resources/20191106_094152.jpg" width="70%">
 
 
 ## Fortigate VM setup
@@ -134,11 +132,11 @@ Also make sure you disable all firewalls on the host server.
 
 
 VM ressource Specifications:
-* vCPU:   8  
-* Memory: 8Gb  
-* Disk:   20Gb  
+* vCPU:   8
+* Memory: 8Gb
+* Disk:   20Gb
 
-<img src="./ressources/virtual-machine-manager.png" alt="lab setup" width="75%" height="75%" />
+<img src="./resources/virtual-machine-manager.png" alt="lab setup" width="75%" height="75%" />
 
 example resulting xml file:
 ```
@@ -362,7 +360,7 @@ config system virtual-wire-pair
 end
 ```
 
-<img src="./ressources/vwp1.png" alt="lab setup" width="75%" height="75%" />
+<img src="./resources/vwp1.png" alt="lab setup" width="75%" height="75%" />
 
 ### Adding a virtual wire pair and virtual wire pair policy
 
@@ -381,7 +379,7 @@ Configure the other firewall options as desired.
 
 Add security rules as desired.
 
-<img src="./ressources/vwp-policy.png" alt="lab setup" width="75%" height="75%" />
+<img src="./resources/vwp-policy.png" alt="lab setup" width="75%" height="75%" />
 
 ### Repeat all the same steps for as many Fortinet VM's as you would like to use.
 
@@ -390,9 +388,9 @@ _______________
 
 Traffic Generator VM's ressource Specifications:
 
-* vCPU:   8  
-* Memory: 8 Gb  
-* Disk:   100 Gb  
+* vCPU:   8
+* Memory: 8 Gb
+* Disk:   100 Gb
 
 ### Traffic Source Tools (lt-src)
 
@@ -470,9 +468,9 @@ _______________
 
 VM ressource Specifications:
 
-* vCPU:   4  
-* Memory: 4 Gb  
-* Disk:   100Gb  
+* vCPU:   4
+* Memory: 4 Gb
+* Disk:   100Gb
 
 Create your VM by installing Ubuntu 18.04 use the same tool and process you used to create the firewall VM's
 
@@ -508,14 +506,119 @@ WantedBy=multi-user.target
 
 ## Configure CyberMapper and the Switch using the Visual Operations tool
 _______________
-Once everything is installed you should be able to configure CyberMapper using the VisualOps Dashboard and start sending traffic.
+Once everything is installed you should be able to configure CyberMapper using the VisualOps Dashboard and start sending traffic. You can reach the dashboard by entering
 
-<img src="./ressources/guidedSetup.png" alt="lab setup" width="75%" height="75%" />  
+http://\<CyberMapperIp>:5000
+
+### Guided Setup Welcome Screen
+
+The Figure 5 browser window below displays the Guided Setup Welcome screen. This is an informational step in
+the Load Balancing setup. The orange “Get Started” button launched the setup process (next page).
+(Note the “informational” basic steps description will be provided as part of the fit-and-finish ToDo work
+
+<img src="./resources/guidedSetup.png" alt="lab setup" width="75%" height="75%" />
+<figcaption>Figure 5: The Guided Setup Welcome Screen</figcaption>
 <br>
 <br>
+
+### Connected Switches Screen
+
+The Figure 6 browser window below - Connected Switches - provides the visual representation of connected
+switches and ports availability for vOPS to configure.
+In this example we have a new environment, so the display shows no switch or ports currently connect to the
+CyberMapper environment.
+The action to be taken is to click the “Add Switch” button in the top-right which launches the “Initialize Switch
+Popup” (next page).
 <br>
-<img src="./ressources/SwitchDetection.png" alt="lab setup" width="75%" height="75%" />  
+<br>
+<img src="./resources/connected.png" alt="lab setup" width="75%" height="75%" align=center/>
+<figcaption>Figure 6: Connect Switch display prior to any switch IP known</figcaption>
 <br>
 <br>
+
+### Initialize Switch Popup
+
+Figure 7 browser window shoes the popup that requests a Switch IP address and a Controller IP address (if not
+already known). The user enters the Switch IP address and CyberMapper controller IP address (if need).
+These two IP address are the only data the user is asked to enter in the Guided Setup process. The bump-in-wire
+and Security Tool port pairs are harvested (sensed) form active ports on switch (see next page).
+On clicking the Accept button (not shown) the user is returned to the Connected Switches screen (see next
+page).
 <br>
-<img src="./ressources/latencyDashboard.png" alt="lab setup" width="75%" height=75%" />
+<br>
+<img src="./resources/initialize.jpg" alt="lab setup" width="75%" height="75%" />
+<figcaption>Figure 6: Connect Switch display prior to any switch IP known</figcaption>
+<br>
+<br>
+
+### Connected Switches Screen
+
+vOPS is now connected to CyberMapper and CyberMapper to the switch. Figure 8 browser
+window “Connected Switches” is now an interactive configuration environment.
+vOPS knows the Switch ID and quires the CyberMapper Virtual State data structure for port information. Figure
+8 shows a switch that has 8 active ports configured into 4 port pairs. The Available Mitigation (bump-in-wire)
+Port-pair 1-2. The Available Target Ports shows 3 port-pairs (red/green links to security tools) – 9-10, 109-110,
+and 209-210.
+These ports will be selected into the Load Balancing configuration once the Next button is click
+<br>
+<br>
+<img src="./resources/SwitchDetection.png" alt="lab setup" width="75%" height="75%" />
+<figcaption>Figure 7: Initialize Switch pop-up requesting switch and controller IP addresses (white boxes)</figcaption>
+<br>
+<br>
+
+### Choose Configuration Template
+
+The browser window in Figure 9 displays the Choose Configuration Template screen. With release vOPS 1.0 only
+the standard Load Balancing Template is presented. Click Next button to select and move forward.
+<br>
+<br>
+<img src="./resources/template.png" alt="lab setup" width="75%" height="75%" />
+<figcaption>Figure 9: Display of Available Configuration Templates</figcaption>
+<br>
+<br>
+
+### Assign Mitigation Ports Screen
+
+The Figure 10 browser window displays enabled ports on the switch. The user can lockdown, or modify, the
+Mitigation Ports. This window is interactive, so any changes to optical modules will be displayed. We desired
+port pairs are displayed click Next button.
+<br>
+<br>
+<img src="./resources/mitigation.png" alt="lab setup" width="75%" height="75%" />
+<figcaption>Figure 10: Display of Switch Active Mitigation Ports</figcaption>
+<br>
+
+### Assign Target Ports Screen
+
+The Figure 11 browser window displays enabled Target ports (red/green links to security tools) on the switch.
+The user can lockdown, or modify, the Target Ports. This window is interactive, so any changes to optical
+modules will be displayed. We desired port pairs are displayed click Next button.
+<br>
+<img src="./resources/target.png" alt="lab setup" width="75%" height="75%" />
+<figcaption>Figure 11: Display of Switch Active Target Ports (red/green to security tool)</figcaption>
+<br>
+<br>
+
+### Generated Deployment Configuration
+
+The Figure 12 browser window displays the “human-readable” vOPS configuration file generated by the Guided
+Setup process. The user reviews this configuration and if correct clicks the Submit Configuration button.
+<br>
+<br>
+<img src="./resources/deployment.png" alt="lab setup" width="75%" height="75%" /><figcaption>
+<figcaption>Figure 12: Display of Generated vOPS Configuration File</figcaption>
+<br>
+### Switch Configuration Status
+
+The configuration process is completed. The CyberMapper Pipeline defined in the Guided Setup Configuration is
+installed. The CyberMapper virtual pipeline and switch state is quired and displayed as shown below.
+<br>
+<br>
+<img src="./resources/configuration.png" alt="lab setup" width="75%" height="75%" />
+<figcaption>Figure 13: Configuratin Results at Completion of Guided Setup</figcaption>
+
+### Latency Dashboard
+<br>
+<br>
+<img src="./resources/latencyDashboard.png" alt="lab setup" width="75%" height=75%" /><figcaption>Figure 14: Display of Generated vOPS Configuration File</figcaption>
