@@ -547,7 +547,7 @@ page).
 <br>
 <br>
 <img src="./resources/initialize.jpg" alt="lab setup" width="75%" height="75%" />
-<figcaption>Figure 6: Connect Switch display prior to any switch IP known</figcaption>
+<figcaption>Figure 7: Initialize Switch pop-up requesting switch and controller IP addresses (white boxes)</figcaption>
 <br>
 <br>
 
@@ -563,7 +563,7 @@ These ports will be selected into the Load Balancing configuration once the Next
 <br>
 <br>
 <img src="./resources/SwitchDetection.png" alt="lab setup" width="75%" height="75%" />
-<figcaption>Figure 7: Initialize Switch pop-up requesting switch and controller IP addresses (white boxes)</figcaption>
+<figcaption>Figure 8: Display the active ports on the switch and how they will be configured</figcaption>
 <br>
 <br>
 
@@ -609,6 +609,7 @@ Setup process. The user reviews this configuration and if correct clicks the Sub
 <img src="./resources/deployment.png" alt="lab setup" width="75%" height="75%" /><figcaption>
 <figcaption>Figure 12: Display of Generated vOPS Configuration File</figcaption>
 <br>
+
 ### Switch Configuration Status
 
 The configuration process is completed. The CyberMapper Pipeline defined in the Guided Setup Configuration is
@@ -619,6 +620,6 @@ installed. The CyberMapper virtual pipeline and switch state is quired and displ
 <figcaption>Figure 13: Configuratin Results at Completion of Guided Setup</figcaption>
 
 ### Latency Dashboard
-<br>
+
 <br>
 <img src="./resources/latencyDashboard.png" alt="lab setup" width="75%" height=75%" /><figcaption>Figure 14: Display of Generated vOPS Configuration File</figcaption>
