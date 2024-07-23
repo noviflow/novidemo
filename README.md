@@ -609,9 +609,9 @@ The configuration process is completed. The CyberMapper Pipeline defined in the 
 installed. The CyberMapper virtual pipeline and switch state is quired and displayed as shown below.
 
 <img src="./resources/configuration.png" alt="lab setup" width="75%" height="75%" />
-<figcaption>Figure 13: Configuratin Results at Completion of Guided Setup</figcaption>
+<figcaption>Figure 13: Configuration Results at Completion of Guided Setup</figcaption>
 
 ### Latency Dashboard
 
 <br>
-<img src="./resources/latencyDashboard.png" alt="lab setup" width="75%" height=75%" /><figcaption>Figure 14: Latecy Dasboar displaying bandwith and tool latency</figcaption>
+<img src="./resources/latencyDashboard.png" alt="lab setup" width="75%" height=75%" /><figcaption>Figure 14: Latency Dashboard displaying bandwith and tool latency</figcaption>
